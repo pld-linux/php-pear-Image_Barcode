@@ -1,13 +1,13 @@
 %include	/usr/lib/rpm/macros.php
 %define		_class		Image
 %define		_subclass	Barcode
-%define		_status		alpha
+%define		_status		beta
 
 %define		_pearname	%{_class}_%{_subclass}
 Summary:	%{_pearname} - render barcodes
 Summary(pl):	%{_pearname} - rysowanie kodów kreskowych
 Name:		php-pear-%{_pearname}
-Version:	0.3
+Version:	0.4
 Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
