@@ -25,10 +25,15 @@ of description a given string. This class uses GD functions because of
 this the generated graphic can be any of GD supported supported image
 types.
 
-This class has in PEAR status: %{_status}
+This class has in PEAR status: %{_status}.
 
 %description -l pl
-Ta klasa ma w PEAR status: %{_status}
+Przy pomocy klasy PEAR::Image_Barcode mo¿na tworzyæ reprezentacjê
+danego ³añcucha w postaci kodu kreskowego. Ta klasa u¿ywa funkcji GD,
+dziêki czemu generowana grafika mo¿e byæ w dowolnym formacie
+obs³ugiwanym przez GD.
+
+Ta klasa ma w PEAR status: %{_status}.
 
 %prep
 %setup -q -c
