@@ -26,7 +26,7 @@ of description a given string. This class uses GD functions because of
 this the generated graphic can be any of GD supported supported image
 types.
 
-This class has in PEAR status: %{_status}.
+In PEAR status of this package is: %{_status}.
 
 %description -l pl
 Przy pomocy klasy PEAR::Image_Barcode mo¿na tworzyæ reprezentacjê
