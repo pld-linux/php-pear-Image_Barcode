@@ -7,12 +7,12 @@
 Summary:	%{_pearname} - render barcodes
 Summary(pl):	%{_pearname} - rysowanie kodów kreskowych
 Name:		php-pear-%{_pearname}
-Version:	0.5
-Release:	2
+Version:	1.0.1
+Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	7b6315f52ba7e1063a67b3efd2b52b0f
+# Source0-md5:	eb7aee7fd64a2cc344c449d6eccbe5b0
 URL:		http://pear.php.net/package/Image_Barcode/
 BuildRequires:	rpm-php-pearprov >= 4.0.2-98
 Requires:	php-gd
