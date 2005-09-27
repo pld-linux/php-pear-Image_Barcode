@@ -7,12 +7,12 @@
 Summary:	%{_pearname} - render barcodes
 Summary(pl):	%{_pearname} - rysowanie kodów kreskowych
 Name:		php-pear-%{_pearname}
-Version:	1.0.1
-Release:	1.1
+Version:	1.0.4
+Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	eb7aee7fd64a2cc344c449d6eccbe5b0
+# Source0-md5:	f029193037c9e0942f03440217bc676b
 URL:		http://pear.php.net/package/Image_Barcode/
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 Requires:	php-gd
@@ -39,20 +39,10 @@ obs³ugiwanym przez GD.
 
 Ta klasa ma w PEAR status: %{_status}.
 
-%package tests
-Summary:	Tests for PEAR::%{_pearname}
-Summary(pl):	Testy dla PEAR::%{_pearname}
-Group:		Development
-Requires:	%{name} = %{version}-%{release}
-
-%description tests
-Tests for PEAR::%{_pearname}.
-
-%description tests -l pl
-Testy dla PEAR::%{_pearname}.
-
 %prep
 %pear_package_setup
+install -d docs/%{_pearname}
+mv ./%{php_pear_dir}/Image/docs/examples docs/%{_pearname}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -70,12 +60,9 @@ fi
 %files
 %defattr(644,root,root,755)
 %doc install.log optional-packages.txt
-%doc docs/%{_pearname}/{*.txt,ChangeLog}
+%doc docs/%{_pearname}/docs/*
+%doc docs/%{_pearname}/examples
 %{php_pear_dir}/.registry/*.reg
 %dir %{php_pear_dir}/%{_class}/%{_subclass}
 %{php_pear_dir}/%{_class}/*.php
 %{php_pear_dir}/%{_class}/%{_subclass}/*.php
-
-%files tests
-%defattr(644,root,root,755)
-%{php_pear_dir}/tests/*
