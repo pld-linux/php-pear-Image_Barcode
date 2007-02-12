@@ -5,7 +5,7 @@
 %define		_pearname	%{_class}_%{_subclass}
 
 Summary:	%{_pearname} - render barcodes
-Summary(pl):	%{_pearname} - rysowanie kodów kreskowych
+Summary(pl.UTF-8):   %{_pearname} - rysowanie kodÃ³w kreskowych
 Name:		php-pear-%{_pearname}
 Version:	1.0.4
 Release:	3
@@ -33,11 +33,11 @@ types.
 
 In PEAR status of this package is: %{_status}.
 
-%description -l pl
-Przy pomocy klasy PEAR::Image_Barcode mo¿na tworzyæ reprezentacjê
-danego ³añcucha w postaci kodu kreskowego. Ta klasa u¿ywa funkcji GD,
-dziêki czemu generowana grafika mo¿e byæ w dowolnym formacie
-obs³ugiwanym przez GD.
+%description -l pl.UTF-8
+Przy pomocy klasy PEAR::Image_Barcode moÅ¼na tworzyÄ‡ reprezentacjÄ™
+danego Å‚aÅ„cucha w postaci kodu kreskowego. Ta klasa uÅ¼ywa funkcji GD,
+dziÄ™ki czemu generowana grafika moÅ¼e byÄ‡ w dowolnym formacie
+obsÅ‚ugiwanym przez GD.
 
 Ta klasa ma w PEAR status: %{_status}.
 
