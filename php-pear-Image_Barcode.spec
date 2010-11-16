@@ -1,17 +1,15 @@
 %include	/usr/lib/rpm/macros.php
-%define		_class		Image
-%define		_subclass	Barcode
 %define		_status		stable
-%define		_pearname	%{_class}_%{_subclass}
+%define		_pearname	Image_Barcode
 Summary:	%{_pearname} - render barcodes
 Summary(pl.UTF-8):	%{_pearname} - rysowanie kodów kreskowych
 Name:		php-pear-%{_pearname}
-Version:	1.1.0
-Release:	3
+Version:	1.1.1
+Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	6fb0c657f71a75331be9c4b4310d07ae
+# Source0-md5:	40183315fdb62fe8cd758f33162b520d
 URL:		http://pear.php.net/package/Image_Barcode/
 BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
@@ -62,6 +60,6 @@ fi
 %doc install.log optional-packages.txt
 %doc docs/%{_pearname}/docs/*
 %{php_pear_dir}/.registry/*.reg
-%dir %{php_pear_dir}/%{_class}/%{_subclass}
-%{php_pear_dir}/%{_class}/*.php
-%{php_pear_dir}/%{_class}/%{_subclass}/*.php
+%dir %{php_pear_dir}/Image/Barcode
+%{php_pear_dir}/Image/*.php
+%{php_pear_dir}/Image/Barcode/*.php
