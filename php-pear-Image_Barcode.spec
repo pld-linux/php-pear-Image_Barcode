@@ -1,19 +1,19 @@
+%define		status		stable
+%define		pearname	Image_Barcode
 %include	/usr/lib/rpm/macros.php
-%define		_status		stable
-%define		_pearname	Image_Barcode
-Summary:	%{_pearname} - render barcodes
-Summary(pl.UTF-8):	%{_pearname} - rysowanie kodów kreskowych
-Name:		php-pear-%{_pearname}
-Version:	1.1.1
+Summary:	%{pearname} - render barcodes
+Summary(pl.UTF-8):	%{pearname} - rysowanie kodów kreskowych
+Name:		php-pear-%{pearname}
+Version:	1.1.2
 Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
-Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	40183315fdb62fe8cd758f33162b520d
+Source0:	http://pear.php.net/get/%{pearname}-%{version}.tgz
+# Source0-md5:	d0fb65ddc48c0caeb0b11686a8528a7c
 URL:		http://pear.php.net/package/Image_Barcode/
 BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
-BuildRequires:	rpmbuild(macros) >= 1.300
+BuildRequires:	rpmbuild(macros) >= 1.580
 Requires:	php-gd
 Requires:	php-pear
 Suggests:	php-pear-PHP_Compat
@@ -21,7 +21,7 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 # exclude optional dependencies
-%define		_noautoreq	'pear(PHP/Compat.*)'
+%define		_noautoreq	pear(PHP/Compat.*)
 
 %description
 With PEAR::Image_Barcode class you can create a barcode representation
@@ -29,7 +29,7 @@ of description a given string. This class uses GD functions because of
 this the generated graphic can be any of GD supported supported image
 types.
 
-In PEAR status of this package is: %{_status}.
+In PEAR status of this package is: %{status}.
 
 %description -l pl.UTF-8
 Przy pomocy klasy PEAR::Image_Barcode można tworzyć reprezentację
@@ -37,15 +37,24 @@ danego łańcucha w postaci kodu kreskowego. Ta klasa używa funkcji GD,
 dzięki czemu generowana grafika może być w dowolnym formacie
 obsługiwanym przez GD.
 
-Ta klasa ma w PEAR status: %{_status}.
+Ta klasa ma w PEAR status: %{status}.
 
 %prep
 %pear_package_setup
+
+# wtf?
+%{__rm} .%{php_pear_dir}/data/Image_Barcode/Image_Barcode-1.1.1.tgz
+
+mv .%{php_pear_dir}/data/Image_Barcode/README .
+mv docs/%{pearname}/docs/examples .
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{php_pear_dir}
 %pear_package_install
+
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -57,9 +66,11 @@ fi
 
 %files
 %defattr(644,root,root,755)
+%doc README
 %doc install.log optional-packages.txt
-%doc docs/%{_pearname}/docs/*
+%doc docs/%{pearname}/docs/*
 %{php_pear_dir}/.registry/*.reg
 %dir %{php_pear_dir}/Image/Barcode
 %{php_pear_dir}/Image/*.php
 %{php_pear_dir}/Image/Barcode/*.php
+%{_examplesdir}/%{name}-%{version}
