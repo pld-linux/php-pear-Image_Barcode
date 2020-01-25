@@ -1,6 +1,5 @@
 %define		status		stable
 %define		pearname	Image_Barcode
-%include	/usr/lib/rpm/macros.php
 Summary:	%{pearname} - render barcodes
 Summary(pl.UTF-8):	%{pearname} - rysowanie kodów kreskowych
 Name:		php-pear-%{pearname}
